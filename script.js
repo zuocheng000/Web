@@ -127,18 +127,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 验证数字输入
     function validateNumberInputs(num1, num2, num3) {
-        if (isNaN(num1) || num1 < 0 || num1 > 9) {
-            alert('请输入有效的数字1 (0-9)');
+        if (isNaN(num1) || num1 < 1 || num1 > 9) {
+            alert('请输入有效的数字1 (1-9)');
             return false;
         }
         
-        if (isNaN(num2) || num2 < 0 || num2 > 9) {
-            alert('请输入有效的数字2 (0-9)');
+        if (isNaN(num2) || num2 < 1 || num2 > 9) {
+            alert('请输入有效的数字2 (1-9)');
             return false;
         }
         
-        if (isNaN(num3) || num3 < 0 || num3 > 9) {
-            alert('请输入有效的数字3 (0-9)');
+        if (isNaN(num3) || num3 < 1 || num3 > 9) {
+            alert('请输入有效的数字3 (1-9)');
             return false;
         }
         
@@ -198,10 +198,10 @@ document.addEventListener('DOMContentLoaded', function() {
             '【空亡】<span class="direction">北方</span><span class="symbol">玄武</span><span class="element">五行属水</span><span class="body-part">对应免疫系统</span>'
         ];
         
-        // 将0-9的输入转换为1-6的范围
-        const convertedNum1 = (num1 % 6) + 1;
-        const convertedNum2 = (num2 % 6) + 1;
-        const convertedNum3 = (num3 % 6) + 1;
+        // 将1-9的输入转换为1-6的范围
+        const convertedNum1 = ((num1 - 1) % 6) + 1;
+        const convertedNum2 = ((num2 - 1) % 6) + 1;
+        const convertedNum3 = ((num3 - 1) % 6) + 1;
         
         // 计算月落位置
         const initialPosition = convertedNum1;
@@ -432,7 +432,7 @@ document.addEventListener('DOMContentLoaded', function() {
             script.onload = function() {
                 html2canvas(resultElement).then(function(canvas) {
                     const link = document.createElement('a');
-                    link.download = '小六壬算卦结果.png';
+                    link.download = '算卦结果.png';
                     link.href = canvas.toDataURL('image/png');
                     link.click();
                 });
