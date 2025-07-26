@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小六壬算卦</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="小六壬算卦，探寻命运的奥秘，预测婚姻、事业、健康等方面的吉凶">
+    <meta name="keywords" content="小六壬,算卦,占卜,预测,大安,留连,速喜,赤口,小吉,空亡">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🔮</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch" class="theme-switch">
+                <label for="theme-switch" class="theme-label">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <span class="theme-ball"></span>
+                </label>
+            </div>
+            <h1>小六壬算卦</h1>
+            <div class="subtitle">探寻命运的奥秘</div>
+        </header>
+        
+        <div class="info-button" id="show-info">
+            <i class="fas fa-info-circle"></i> 六宫详解
+        </div>
+        
+        <div class="info-modal" id="info-modal">
+            <div class="info-content">
+                <span class="close-btn">&times;</span>
+                <h2>六宫详解</h2>
+                
+                <div class="palace-info">
+                    <h3>大安宫</h3>
+                    <p><strong>象征</strong>：东方青龙，五行属木，主静止、安宁、吉祥。</p>
+                    <p><strong>含义</strong>：代表事物平稳、顺利，感情中可能象征安全感或被动状态；求财宜西南方，失物在附近。</p>
+                    <p><strong>关联</strong>：事业、婚姻、家宅安康，对应人体左腿及肝脏。</p>
+                </div>
+                
+                <div class="palace-info">
+                    <h3>留连宫</h3>
+                    <p><strong>象征</strong>：南方玄武（或四方土），五行属阴土，主拖延、反复。</p>
+                    <p><strong>含义</strong>：事情进展受阻，感情易暧昧不清；失物可往南方寻，需防口舌是非。</p>
+                    <p><strong>关联</strong>：财帛、慢性病，对应脾胃及神经系统。</p>
+                </div>
+                
+                <div class="palace-info">
+                    <h3>速喜宫</h3>
+                    <p><strong>象征</strong>：南方朱雀，五行属火，主迅速、喜事。</p>
+                    <p><strong>含义</strong>：时机成熟，感情可能热恋或冲动；求财向南，失物在申午未时段。</p>
+                    <p><strong>关联</strong>：名誉、急性病症，对应心脏及脑部。</p>
+                </div>
+                
+                <div class="palace-info">
+                    <h3>赤口宫</h3>
+                    <p><strong>象征</strong>：西方白虎，五行属金，主口舌、凶险。</p>
+                    <p><strong>含义</strong>：易生争执，感情可能破裂；失物难寻，需防意外。</p>
+                    <p><strong>关联</strong>：官司、呼吸系统疾病，对应肺及骨骼。</p>
+                </div>
+                
+                <div class="palace-info">
+                    <h3>小吉宫</h3>
+                    <p><strong>象征</strong>：东方青龙（或玄武水），五行属阳土（或水），主小吉、温和。</p>
+                    <p><strong>含义</strong>：渐进式顺利，感情稳定但易变动；失物寻西南方。</p>
+                    <p><strong>关联</strong>：出行、桃花，对应肾脏及右腿。</p>
+                </div>
+                
+                <div class="palace-info">
+                    <h3>空亡宫</h3>
+                    <p><strong>象征</strong>：北方（或中央），五行属水（或土），主落空、虚无。</p>
+                    <p><strong>含义</strong>：事态不明朗，感情多幻想；求财无利，失物难回。</p>
+                    <p><strong>关联</strong>：灾祸、免疫系统疾病，对应深层组织。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="time">时间起卦</button>
+            <button class="tab-btn" data-tab="number">数字起卦</button>
+        </div>
+
+        <div class="tab-content active" id="time-tab">
+            <div class="form-group">
+                <label for="month">月份</label>
+                <input type="number" id="month" min="1" max="12" value="1">
+            </div>
+            <div class="form-group">
+                <label for="day">日期</label>
+                <input type="number" id="day" min="1" max="31" value="1">
+            </div>
+            <div class="form-group">
+                <label for="hour">时辰 (24小时制)</label>
+                <input type="number" id="hour" min="0" max="23" value="12">
+            </div>
+            <button id="time-submit" class="submit-btn">开始占卜</button>
+        </div>
+
+        <div class="tab-content" id="number-tab">
+            <div class="form-group">
+                <label for="num1">数字1 (0-9)</label>
+                <input type="number" id="num1" min="0" max="9" value="1">
+            </div>
+            <div class="form-group">
+                <label for="num2">数字2 (0-9)</label>
+                <input type="number" id="num2" min="0" max="9" value="1">
+            </div>
+            <div class="form-group">
+                <label for="num3">数字3 (0-9)</label>
+                <input type="number" id="num3" min="0" max="9" value="1">
+            </div>
+            <button id="number-submit" class="submit-btn">开始占卜</button>
+        </div>
+
+        <div class="result" id="result">
+            <div class="result-header">
+                <i class="fas fa-scroll"></i>
+                <h2>卦象结果</h2>
+                <div class="share-buttons">
+                    <button id="save-image" title="保存为图片"><i class="fas fa-camera"></i></button>
+                    <button id="copy-result" title="复制结果"><i class="fas fa-copy"></i></button>
+                </div>
+            </div>
+            <div class="result-content">
+                <div class="hexagram">
+                    <div class="hexagram-item">
+                        <div class="label-title">月落</div>
+                        <div class="label-content" id="month-label"></div>
+                    </div>
+                    <div class="hexagram-item">
+                        <div class="label-title">日落</div>
+                        <div class="label-content" id="day-label"></div>
+                    </div>
+                    <div class="hexagram-item">
+                        <div class="label-title">时落</div>
+                        <div class="label-content" id="hour-label"></div>
+                    </div>
+                </div>
+                <div class="interpretation">
+                    <h3>速断口诀</h3>
+                    <p id="interpretation-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <footer>
+        <p class="author-info">微信：system_admin000</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
